@@ -1,0 +1,51 @@
+{
+	"name": "ofdviewer",
+	"displayName": "ofd预览",
+	"description": "ofd预览的插件，直接打开ofd文件预览和简单编辑",
+	"version": "0.0.2",
+	"publisher": "xxss0903",
+	"private": true,
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"repository": {
+		"private": true
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "images/ofdlogo.png",
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "com.xxss0903.ofdviewer",
+				"displayName": "OFD Viewer",
+				"selector": [
+					{
+						"filenamePattern": "*.ofd"
+					}
+				]
+			}
+		],
+		"commands": []
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint \"src/**/*.ts\"",
+		"watch": "tsc -w -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^16.18.34",
+		"@types/vscode": "^1.73.0",
+		"@typescript-eslint/eslint-plugin": "^6.7.0",
+		"@typescript-eslint/parser": "^6.7.0",
+		"eslint": "^8.26.0",
+		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+	}
+}
