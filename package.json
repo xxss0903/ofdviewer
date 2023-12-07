@@ -19,6 +19,9 @@
 	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
+		"viewsContainers": {
+			"activitybar": []
+		},
 		"customEditors": [
 			{
 				"viewType": "com.xxss0903.ofdviewer",

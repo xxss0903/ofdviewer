@@ -190,12 +190,20 @@ export class OfdEditorProvider
     // Local path to script and css for the webview
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "ofdViewer.js")
-    );
-    const scriptUri2 = webview.asWebviewUri(
+    );  
+    const scriptOfdUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "ofd.umd.js")
     );
-
-    console.log("package ", scriptUri2);
+    const scriptUri3 = webview.asWebviewUri(
+      vscode.Uri.joinPath(this._context.extensionUri, "media", "ofdViewerVue.js")
+    ); 
+     const codeMirrorJsUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/src/codemirror.js")
+    );   
+      const codeMirrorCssUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/lib/codemirror.css")
+    );
+    console.log("package ", scriptOfdUri);
     const styleResetUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "reset.css")
     );
@@ -230,16 +238,22 @@ export class OfdEditorProvider
 					<link href="${styleResetUri}" rel="stylesheet" />
 					<link href="${styleVSCodeUri}" rel="stylesheet" />
 					<link href="${styleMainUri}" rel="stylesheet" />
-		
-
-
+					<link href="${codeMirrorCssUri}" rel="stylesheet" />
 					<title>Paw Draw</title>
+          
+          <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+          <script type="module" src="${codeMirrorJsUri}"></script>
 				</head>
 				<body>
-					<div class="ofd-container"></div>
+					<div id="app">
+            <div ref="ofdContainerRef" id="ofd-container"></div>
+            <div ref="ofdDataRef" id="ofd-data"></div>
+          </div>
 
-					<script type="module" src="${scriptUri2}"></script>
+          
+					<script type="module" src="${scriptOfdUri}"></script>
 					<script type="module" src="${scriptUri}"></script>
+					<script type="module" src="${scriptUri3}"></script>
 				</body>
 				</html>`;
   }
