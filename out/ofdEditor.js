@@ -132,6 +132,7 @@ class OfdEditorProvider {
         const scriptUri3 = webview.asWebviewUri(vscode.Uri.joinPath(this._context.extensionUri, "media", "ofdViewerVue.js"));
         const codeMirrorJsUri = webview.asWebviewUri(vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/src/codemirror.js"));
         const codeMirrorCssUri = webview.asWebviewUri(vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/lib/codemirror.css"));
+        const codeMirrorXmlUri = webview.asWebviewUri(vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/mode/xml/xml.js"));
         console.log("package ", scriptOfdUri);
         const styleResetUri = webview.asWebviewUri(vscode.Uri.joinPath(this._context.extensionUri, "media", "reset.css"));
         const styleVSCodeUri = webview.asWebviewUri(vscode.Uri.joinPath(this._context.extensionUri, "media", "vscode.css"));
@@ -158,15 +159,19 @@ class OfdEditorProvider {
 					<link href="${styleVSCodeUri}" rel="stylesheet" />
 					<link href="${styleMainUri}" rel="stylesheet" />
 					<link href="${codeMirrorCssUri}" rel="stylesheet" />
+					<link href="${codeMirrorCssUri}" rel="stylesheet" />
 					<title>Paw Draw</title>
-          
+
           <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
           <script type="module" src="${codeMirrorJsUri}"></script>
+          <script type="module" src="${codeMirrorXmlUri}"></script>
 				</head>
 				<body>
 					<div id="app">
             <div ref="ofdContainerRef" id="ofd-container"></div>
-            <div ref="ofdDataRef" id="ofd-data"></div>
+            <div ref="ofdDataRef" id="ofd-data">
+              <textarea ref="codeMirrorRef" id="code-mirror"></textarea>
+            </div>
           </div>
 
           

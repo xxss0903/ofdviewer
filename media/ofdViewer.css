@@ -6,12 +6,23 @@ body {
 #app {
   display: flex;
   flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
 
 #ofd-container {
+  background-color: aquamarine;
   flex: 1;
 }
 
 #ofd-data {
+  background-color: blueviolet;
   flex: 1;
+  height: 900px;
 }
+
+#code-mirror {
+	width: 400px;
+	height: 900px;
+}
+
