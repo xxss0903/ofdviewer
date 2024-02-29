@@ -19,14 +19,6 @@ const App = {
         context.$refs.ofdContainerRef.appendChild(div);
       }
     },
-    initialOfdData(context, data) {
-      console.log("ofd data", data);
-      //   this.editor.setValue(JSON.stringify(data));
-      //   this.editor.setValue(data[0]);
-      //   this.editor.setValue("what");
-	  let dataStr = JSON.stringify(data[0], null, "\t")
-      this.editor.doc.setValue(dataStr);
-    },
     listenPluginMessage() {
       let _this = this;
       window.addEventListener("message", async (e) => {
@@ -45,8 +37,6 @@ const App = {
                 const ofdView = ofd.renderOfd(screenWidth, res[0]);
                 //将ofd添加到html上面
                 _this.displayOfdElementToPage(_this, ofdView);
-                // 展示ofd的数据
-                _this.initialOfdData(_this, res);
               },
               fail(error) {
                 vscode.postMessage({
