@@ -1,6 +1,5 @@
 const vscode = acquireVsCodeApi();
 const screenWidth = document.body.clientWidth;
-import CodeMirror from "./codemirror5/src/codemirror.js";
 
 const App = {
   data() {
@@ -27,18 +26,6 @@ const App = {
       //   this.editor.setValue("what");
 	  let dataStr = JSON.stringify(data[0], null, "\t")
       this.editor.doc.setValue(dataStr);
-    },
-    initCodeMirror() {
-      this.editor = CodeMirror.fromTextArea(this.$refs.codeMirrorRef, {
-        mode: { name: "javascript", json: true },
-        lineNumbers: true, // 显示行号
-        styleActiveLine: true, // 高亮当前行
-        htmlMode: true,
-        matchClosing: true,
-        theme: "default",
-        readOnly: false,
-      });
-      //   this.editor.setSize("400px", "900px");
     },
     listenPluginMessage() {
       let _this = this;
@@ -75,7 +62,6 @@ const App = {
   mounted() {
     console.log("vue mounted");
     this.listenPluginMessage();
-    this.initCodeMirror();
     vscode.postMessage({ type: "ready" });
   },
 };

@@ -121,7 +121,7 @@ export class OfdEditorProvider
   private static readonly viewType = "com.xxss0903.ofdviewer";
 
   public static register(context: vscode.ExtensionContext): vscode.Disposable {
-  
+
     return vscode.window.registerCustomEditorProvider(
       OfdEditorProvider.viewType,
       new OfdEditorProvider(context),
@@ -190,19 +190,19 @@ export class OfdEditorProvider
     // Local path to script and css for the webview
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "ofdViewer.js")
-    );  
+    );
     const scriptOfdUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "ofd.umd.js")
     );
     const scriptUri3 = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "ofdViewerVue.js")
-    ); 
+    );
      const codeMirrorJsUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/src/codemirror.js")
-    );   
+    );
       const codeMirrorCssUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/lib/codemirror.css")
-    );    
+    );
       const codeMirrorXmlUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._context.extensionUri, "media", "codemirror5/mode/xml/xml.js")
     );
@@ -252,9 +252,6 @@ export class OfdEditorProvider
 				<body>
 					<div id="app">
             <div ref="ofdContainerRef" id="ofd-container"></div>
-            <div ref="ofdDataRef" id="ofd-data">
-              <textarea ref="codeMirrorRef" id="code-mirror"></textarea>
-            </div>
           </div>
 
           

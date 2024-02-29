@@ -11,12 +11,10 @@ body {
 }
 
 #ofd-container {
-  background-color: aquamarine;
   flex: 1;
 }
 
 #ofd-data {
-  background-color: blueviolet;
   flex: 1;
   height: 900px;
 }

@@ -169,9 +169,6 @@ class OfdEditorProvider {
 				<body>
 					<div id="app">
             <div ref="ofdContainerRef" id="ofd-container"></div>
-            <div ref="ofdDataRef" id="ofd-data">
-              <textarea ref="codeMirrorRef" id="code-mirror"></textarea>
-            </div>
           </div>
 
           
